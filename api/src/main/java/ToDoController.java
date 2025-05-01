@@ -7,7 +7,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Controller
 public class ToDoController {
@@ -29,7 +31,7 @@ public class ToDoController {
     @GetMapping("/todo")
     public List<ToDoItem> getToDoItems() {
         List<ToDoItem> todos = toDoService.getAll();
-        List<ToD>
+        List<ToDoItemDto> todosDto = todos.stream().map((todo) -> new ToDoItemDto(todo.getId(), todo.getTitle(), todo.isDone())).collect(Collectors.toList());
         return todos;
     }
 }
