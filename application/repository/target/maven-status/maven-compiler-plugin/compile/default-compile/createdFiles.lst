@@ -1,0 +1,4 @@
+model/ToDoItemEntity.class
+ToDoRepositoryPostgres.class
+RespositoryConfig.class
+ToDoJpaRepository.class
